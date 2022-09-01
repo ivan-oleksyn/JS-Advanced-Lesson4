@@ -1,0 +1,238 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    .title{
+        color: #b90a0a;
+    }
+    .form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #cac9c9;
+        border-bottom: 1px solid #cac9c9;
+        height: 70px;
+        .contact {
+            width: 75%;
+            border: 1px solid #cac9c9;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 15px;
+        }
+        .contact:focus {
+            outline: #71b3fa;
+            border: 1px solid #78b1f1;
+            box-shadow: 0 0 0 4px #027cff3f;
+        }
+        .contact::placeholder{
+            font-size: 16px;
+            letter-spacing: .5px;
+            opacity: .7;
+        }
+        .add-btn {
+            width: 20%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            color: #fefefe;
+            background-color: #359428;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .add-btn:hover{
+            box-shadow: 0 0 0 4px #46c735be;
+        }
+    }
+    .table{
+        width: 100%;
+        margin-top: 50px;
+        border-collapse: collapse;
+        .thead {
+            height: 50px;
+            border-bottom: 2px solid #cac9c9;
+            font-size: 18px;
+            letter-spacing: 0.1rem;
+            .head-row {
+                height: 50px;
+                .arrow-wrapper {
+                   display: flex;
+                   align-items: center;
+                   position: absolute;
+                   right: 50px;
+                   bottom: 15px;
+                   .arrow {
+                     display: block;
+                     width: 15px;
+                     height: 15px;
+                     background-size: cover;
+                   }
+                 }
+                .name {
+                    width: 270px;
+                    cursor: pointer;
+                    position: relative;
+                    .name-down {
+                        background-image: url('/assets/001-down-filled-triangular-arrow.png');
+                    }
+
+                    .name-up {
+                      background-image: url('/assets/002-caret-arrow-up.png');
+                    } 
+                }
+                .surname{
+                    width: 25%;
+                    cursor: pointer;
+                    position: relative;
+                    .surname-down {
+                      background-image: url('/assets/001-down-filled-triangular-arrow.png');
+                    }
+
+                    .surname-up {
+                      background-image: url('/assets/002-caret-arrow-up.png');
+                    }
+                }
+                .phone {
+                    width: 25%;
+                    cursor: pointer;
+                    position: relative;
+                    .phone-down {
+                      background-image: url('/assets/001-down-filled-triangular-arrow.png');
+                    }
+
+                    .phone-up {
+                      background-image: url('/assets/002-caret-arrow-up.png');
+                    }
+                }
+                .edit {
+                     width: 13%;
+                }
+                .delete {
+                width: 12%;
+                }
+               
+            }
+        }
+        .tbody {
+            .body-row {
+                height: 50px;
+                border-bottom: 1px solid #bebebea8;
+                margin-top: 10px;
+            }
+            .body-row:hover {
+                background-color: #a7a6a680;
+            }
+            td {
+                text-align: center;
+                letter-spacing: .5px;
+                font-size: 17px;
+            }
+            .btn-edit {
+                width: 60px;
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+                background-color: #f5c62d;
+                cursor: pointer;
+            }
+            .btn-delete {
+                width: 70px;
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+                background-color: #ca4938;
+                color: #fefefe;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
+.modal-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0000008a;
+
+  .add-phone-block {
+    width: 450px;
+    height: 350px;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 10px;
+    position: relative;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #bebebea8;
+      padding: 0 10px;
+      margin-top: 20px;
+
+      .header {
+        margin-bottom: 10px;
+      }
+
+      span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url('/assets/close.svg');
+        background-size: cover;
+        cursor: pointer;
+      }
+
+    }
+
+    .add-phone-form {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      border-bottom: 2px solid #bebebea8;
+      padding: 0 20px;
+
+      input {
+        height: 35px;
+        margin-top: 20px;
+        border: 1px solid #cac9c9;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      input:focus {
+        outline: #71b3fa;
+        border: 1px solid #78b1f1;
+        box-shadow: 0 0 0 4px #027cff3f;
+      }
+
+      input::placeholder {
+        opacity: .7;
+      }
+
+      input:last-child {
+        margin-bottom: 20px;
+      }
+    }
+
+    .save-btn {
+      width: 80px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0688df;
+      color: #ffffff;
+      position: absolute;
+      right: 10px;
+      bottom: 17px;
+      cursor: pointer;
+    }
+  }
+}

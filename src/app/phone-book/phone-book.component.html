@@ -1,0 +1,71 @@
+<div class="container">
+  <h1 class="title">My phone book</h1>
+  <form class="form">
+    <input type="text" class="contact" placeholder="search text goes here" [(ngModel)]="contactInfo"
+      [ngModelOptions]="{standalone: true}">
+    <input type="button" value="add phone" class="add-btn" (click)="addContact()">
+  </form>
+
+  <table class="table">
+    <thead class="thead">
+      <tr class="head-row">
+        <th class="name">
+          <h4 (click)="changeType(sortColumnEnum.NAME)" id="name">First name</h4>
+          <div class="arrow-wrapper" *ngIf="sortColumn === sortColumnEnum.NAME">
+            <span class="arrow name-down" *ngIf="sortOrder ===sortOrderEnum.DESC"></span>
+            <span class="arrow name-up" *ngIf="sortOrder ===sortOrderEnum.ASC"></span>
+          </div>
+
+        </th>
+        <th class="surname">
+          <h4 (click)="changeType(sortColumnEnum.SURNAME)" id="surname">Last name</h4>
+          <div class="arrow-wrapper" *ngIf="sortColumn===sortColumnEnum.SURNAME">
+            <span class="arrow surname-down" *ngIf="sortOrder ===sortOrderEnum.DESC"></span>
+            <span class="arrow surname-up" *ngIf="sortOrder ===sortOrderEnum.ASC"></span>
+          </div>
+        </th>
+        <th class="phone">
+          <h4 (click)="changeType(sortColumnEnum.PHONE)" id="phone">Number</h4>
+          <div class="arrow-wrapper" *ngIf="sortColumn===sortColumnEnum.PHONE">
+            <span class="arrow phone-down" *ngIf="sortOrder ===sortOrderEnum.DESC"></span>
+            <span class="arrow phone-up" *ngIf="sortOrder ===sortOrderEnum.ASC"></span>
+          </div>
+        </th>
+        <th class="edit">edit</th>
+        <th class="delete">delete</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr class="body-row"
+        *ngFor="let contact of contacts | search:contactInfo | sort:sortColumn:sortOrder; index as contactIndex">
+        <td class="first-name">{{ contact.firstName }}</td>
+        <td class="last-name">{{ contact.lastName }}</td>
+        <td class="number">{{ contact.number }}</td>
+        <td class="contact-edit"> <input type="button" value="Edit" class="btn-edit"
+            (click)="editContact(contactIndex)"></td>
+        <td class="contact-delete"> <input type="button" value="Delete" class="btn-delete"
+            (click)="deleteContact(contactIndex)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal-window" *ngIf='addPhone'>
+  <div class="add-phone-block">
+    <div class="top">
+      <h2 class="header">Add phone</h2>
+      <span (click)="closeModal()"></span>
+    </div>
+    <form class="add-phone-form">
+      <input type="text" class="add-first-name" placeholder="first name goes here" [(ngModel)]="contactFirstName"
+        [ngModelOptions]="{standalone: true}">
+      <input type="text" class="add-last-name" placeholder="last name goes here" [(ngModel)]="contactLastName"
+        [ngModelOptions]="{standalone: true}">
+      <input type="text" class="add-number" placeholder="number phone goes here" [(ngModel)]="contactNumber"
+        [ngModelOptions]="{standalone: true}">
+    </form>
+    <button class="save-btn" (click)="saveContact()" [disabled]="saveActive">save</button>
+    <button class="save-btn" (click)="saveEditedContact()" *ngIf='saveEditedBTN'>save</button>
+  </div>
+
+</div>
